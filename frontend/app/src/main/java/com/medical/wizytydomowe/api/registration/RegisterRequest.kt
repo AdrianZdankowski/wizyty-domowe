@@ -5,6 +5,7 @@ import java.time.LocalDate
 data class RegisterRequest(
     val firstName: String,
     val lastName: String,
+    val address: String,
     val email: String,
     val password: String,
     val phoneNumber: String,

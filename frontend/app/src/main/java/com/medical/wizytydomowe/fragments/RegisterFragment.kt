@@ -40,12 +40,13 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
             val firstName = view.findViewById<EditText>(R.id.et_first_name).text.toString()
             val lastName = view.findViewById<EditText>(R.id.et_last_name).text.toString()
             var email = view.findViewById<EditText>(R.id.et_email).text.toString()
+            var address = view.findViewById<EditText>(R.id.et_address).text.toString()
             val dateOfBirthInput = view.findViewById<EditText>(R.id.et_date_of_birth).text.toString()
             val phoneNumber = view.findViewById<EditText>(R.id.et_phone_number).text.toString()
             var password = view.findViewById<EditText>(R.id.et_password).text.toString()
 
             // Placeholder
-            if (!validateInputs(firstName, lastName, email, dateOfBirthInput, phoneNumber, password)) {
+            if (!validateInputs(firstName, lastName, email, address ,dateOfBirthInput, phoneNumber, password)) {
                 return@setOnClickListener
             } else {
 
@@ -60,6 +61,7 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
                     firstName = firstName,
                     lastName = lastName,
                     email = email,
+                    address = address,
                     password = password,
                     phoneNumber = phoneNumber,
                     dateOfBirth = dateOfBirth
@@ -101,7 +103,7 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
         }
     }
 
-    private fun validateInputs(firstName: String, lastName: String, email: String,
+    private fun validateInputs(firstName: String, lastName: String, email: String,address: String,
         dateOfBirthInput: String, phoneNumber: String, password: String): Boolean {
         when {
             firstName.isEmpty() -> {
@@ -118,6 +120,10 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
             }
             !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                 Toast.makeText(context, "Nieprawidłowy format email", Toast.LENGTH_SHORT).show()
+                return false
+            }
+            address.isEmpty() -> {
+                Toast.makeText(context,"Pole adresu jest wymagane", Toast.LENGTH_SHORT).show()
                 return false
             }
             dateOfBirthInput.isEmpty() -> {
@@ -162,6 +168,7 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
         val firstNameEditText = view?.findViewById<EditText>(R.id.et_first_name)
         val lastNameEditText = view?.findViewById<EditText>(R.id.et_last_name)
         val emailEditText = view?.findViewById<EditText>(R.id.et_email)
+        val addressEditText = view?.findViewById<EditText>(R.id.et_address)
         val dateOfBirthEditText = view?.findViewById<EditText>(R.id.et_date_of_birth)
         val phoneNumberEditText = view?.findViewById<EditText>(R.id.et_phone_number)
         val passwordEditText = view?.findViewById<EditText>(R.id.et_password)
@@ -170,6 +177,7 @@ class RegisterFragment : Fragment(R.layout.register_fragment) {
         firstNameEditText?.text?.clear()
         lastNameEditText?.text?.clear()
         emailEditText?.text?.clear()
+        addressEditText?.text?.clear()
         dateOfBirthEditText?.text?.clear()
         phoneNumberEditText?.text?.clear()
         passwordEditText?.text?.clear()
