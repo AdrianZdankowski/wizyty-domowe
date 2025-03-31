@@ -23,7 +23,7 @@ import java.util.UUID;
 public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID ID;
+    private UUID id;
     @Enumerated(EnumType.STRING)
     private AppointmentStatus status; //status of the appointment (reserved, available, cancelled or completed)
     private LocalDateTime appointmentStartTime;

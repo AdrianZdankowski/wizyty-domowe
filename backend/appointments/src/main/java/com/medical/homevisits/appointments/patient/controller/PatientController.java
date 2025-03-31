@@ -18,7 +18,7 @@ public class PatientController {
     }
 
     @PostMapping("/api/patients")
-    public void createPatient(@RequestBody createRequest request){
+    public void createPatient(@RequestBody CreateRequest request){
         Patient patient = new Patient(request.getId());
         patientService.create(patient);
     }
@@ -26,6 +26,6 @@ public class PatientController {
 }
 
 @Getter
-class   createRequest{
+class CreateRequest {
     private UUID id;
 }

@@ -16,5 +16,5 @@ import java.util.UUID;
 @Table(name="patients")
 public class Patient {
     @Id
-    private UUID ID;
+    private UUID id;
 }

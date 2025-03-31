@@ -125,4 +125,14 @@ public class AppointmentService {
         appointment.setStatus(AppointmentStatus.RESERVED);
         this.create(appointment); //this updates old appointment entity (without patient) with new (with patient)
     }
+    /**
+     * Metoda do usuwania wizyty na podstawie jej ID
+     * @param appointmentId - ID wizyty do usunięcia
+     */
+    public void deleteAppointment(UUID appointmentId) {
+        Appointment appointment = repository.findById(appointmentId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Appointment not found"));
+        repository.delete(appointment);
+    }
+
 }

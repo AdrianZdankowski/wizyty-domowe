@@ -16,7 +16,7 @@ import java.util.UUID;
 @Table(name="doctors")
 public class Doctor {
     @Id
-    private UUID ID;
+    private UUID id;
     private String firstName;
     private String lastName;
     private String specialization;

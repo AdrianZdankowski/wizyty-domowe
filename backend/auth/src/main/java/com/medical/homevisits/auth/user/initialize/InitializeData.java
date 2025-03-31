@@ -59,7 +59,7 @@ public class InitializeData implements InitializingBean {
                     .dateOfBirth(null)
                     .build();
             userService.create(patient);
-            System.out.println("Patient user has been created!");
+            System.out.println("Patient user has been created!"+patient.getID());
         }
 
         if (userRepository.findByEmail("doctor@test.com").isEmpty()) {
@@ -76,7 +76,7 @@ public class InitializeData implements InitializingBean {
                     .dateOfBirth(null)
                     .build();
             userService.create(doctor);
-            System.out.println("Doctor user has been created!");
+            System.out.println("Doctor user has been created!"+doctor.getID());
 
 
 
