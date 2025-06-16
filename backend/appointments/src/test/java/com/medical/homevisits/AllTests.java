@@ -64,7 +64,7 @@ public class AllTests {
         doctor.setLastName("Kowalski");
         doctor.setWorkPlace(wp);
 
-        assertEquals("Szpital Miejski", doctor.getWorkPlace());
+        assertEquals("Szpital Miejski", doctor.getWorkPlace().getName());
     }
 
     @Test
