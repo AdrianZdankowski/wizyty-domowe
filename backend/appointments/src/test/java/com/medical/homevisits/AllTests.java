@@ -53,7 +53,7 @@ public class AllTests {
     }
 
     @Test
-    public void testDoctorWithWorkplace() {
+    public void testDoctor() {
         Workplace wp = new Workplace();
         wp.setID(UUID.randomUUID());
         wp.setName("Szpital Miejski");
@@ -62,7 +62,7 @@ public class AllTests {
         doctor.setID(UUID.randomUUID());
         doctor.setFirstName("Jan");
         doctor.setLastName("Kowalski");
-        doctor.setWorkPlace(wp.getName());
+        doctor.setWorkPlace(wp);
 
         assertEquals("Szpital Miejski", doctor.getWorkPlace());
     }
@@ -77,7 +77,8 @@ public class AllTests {
         nurse.setID(UUID.randomUUID());
         nurse.setFirstName("Ewa");
         nurse.setLastName("Nowak");
-
+        nurse.setWorkPlace(wp);
+        
         assertNotNull(nurse.getFirstName());
         assertEquals("Ewa", nurse.getFirstName());
     }
@@ -92,6 +93,7 @@ public class AllTests {
         paramedic.setID(UUID.randomUUID());
         paramedic.setFirstName("Karol");
         paramedic.setLastName("Wiśniewski");
+        paramedic.setWorkPlace(wp);
 
         assertEquals("Karol", paramedic.getFirstName());
     }
